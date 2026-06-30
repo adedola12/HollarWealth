@@ -17,13 +17,13 @@ const Offer = () => {
           {/* Text Content */}
           <div className="relative z-[2] p-6 flex flex-col justify-end h-full">
             <span className="bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded mb-3 w-max drop-shadow">
-              UP TO 80% OFF
+              FEATURED
             </span>
             <h2 className="text-white text-lg sm:text-xl md:text-2xl font-bold leading-tight mb-3 drop-shadow">
-              Kiddies Korean <br /> Summer Collection
+              Explore the latest <br /> laptops &amp; gadgets
             </h2>
             <Link
-              to="/shop"
+              to="/collection"
               className="inline-block bg-blue-500 text-white px-4 py-2 text-sm font-semibold rounded hover:bg-blue-600 transition w-max drop-shadow"
             >
               Shop now
@@ -44,10 +44,10 @@ const Offer = () => {
             {/* Text */}
             <div className="relative z-[2] p-4 flex flex-col justify-end h-full">
               <span className="bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded mb-2 w-max drop-shadow">
-                UP TO 80% OFF
+                TOP BRANDS
               </span>
               <h3 className="text-white text-base font-semibold leading-snug drop-shadow">
-                Dell new pc <br /> line up
+                Premium gadgets, <br /> great value
               </h3>
             </div>
           </div>

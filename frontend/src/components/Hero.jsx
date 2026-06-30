@@ -1,9 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import hero1 from "../assets/hero-1.jpg";
+import hero2 from "../assets/hero-2.jpg";
+import hero3 from "../assets/hero-3.jpg";
 
-// Modern, techy hero slides. Imagery is decorative (Unsplash); a dark gradient
-// overlay keeps copy readable even if an image is slow or blocked.
+// Modern, techy hero slides. Imagery is bundled locally (offline-safe); a dark
+// gradient overlay keeps copy readable even if an image is slow to load.
 const SLIDES = [
   {
     eyebrow: "Welcome to Horlawealth Gadgets",
@@ -13,8 +16,7 @@ const SLIDES = [
       </>
     ),
     subtitle: "Premium laptops, phones & accessories — curated for you.",
-    image:
-      "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1600&q=80",
+    image: hero1,
   },
   {
     eyebrow: "Built for performance",
@@ -24,8 +26,7 @@ const SLIDES = [
       </>
     ),
     subtitle: "Top brands. Honest prices. Nationwide delivery.",
-    image:
-      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1600&q=80",
+    image: hero2,
   },
   {
     eyebrow: "New arrivals",
@@ -35,8 +36,7 @@ const SLIDES = [
       </>
     ),
     subtitle: "Discover the newest gadgets, hand-picked by our team.",
-    image:
-      "https://images.unsplash.com/photo-1593642634524-b40b5baae6bb?auto=format&fit=crop&w=1600&q=80",
+    image: hero3,
   },
 ];
 

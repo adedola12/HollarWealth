@@ -1,0 +1,58 @@
+import React, { useContext, useMemo } from "react";
+import { ShopContext } from "../context/ShopContext";
+import Title from "./Title";
+import ProductItem from "./ProductItem";
+import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
+
+const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
+
+const LatestCollection = () => {
+  const { products, hasStorefrontContent, productsLoading } =
+    useContext(ShopContext);
+
+  const latestProducts = useMemo(() => {
+    if (!hasStorefrontContent) {
+      // placeholder mode — keep first 10 of dummy data
+      return products.slice(0, 10);
+    }
+    const cutoff = Date.now() - TWENTY_FOUR_HOURS;
+    const fresh = products.filter((p) => {
+      const t = p.createdAt ? new Date(p.createdAt).getTime() : 0;
+      return t >= cutoff;
+    });
+    return fresh.slice(0, 10);
+  }, [products, hasStorefrontContent]);
+
+  return (
+    <div className="my-10 max-w-[1500px] mx-auto px-4">
+      <div className="flex items-center justify-between mb-6">
+        <Title text1="New" text2="Arrivals" />
+        <Link
+          to="/collection"
+          className="text-sm sm:text-base text-blue-500 hover:underline flex items-center gap-1 font-medium"
+        >
+          More Products <FaArrowRight className="text-[10px] mt-[1px]" />
+        </Link>
+      </div>
+
+      {productsLoading ? (
+        <p className="text-sm text-gray-500 dark:text-gray-400 py-10 text-center">
+          Loading new arrivals…
+        </p>
+      ) : latestProducts.length === 0 ? (
+        <p className="text-sm text-gray-500 dark:text-gray-400 py-10 text-center">
+          No new arrivals in the last 24 hours. Check back tomorrow.
+        </p>
+      ) : (
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6">
+          {latestProducts.map((item) => (
+            <ProductItem key={item._id} {...item} id={item._id} />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default LatestCollection;

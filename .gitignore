@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Environment / secrets
+.env
+**/.env
+.env.*
+!**/.env.example
+backend/config/serviceAccount.json
+
+# Build output
+dist/
+**/dist/
+build/
+**/build/
+dist-ssr/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Caches
+.cache
+.parcel-cache
+.eslintcache
+.vite
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.local
+*.suo
+*.sw?

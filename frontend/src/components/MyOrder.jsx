@@ -1,0 +1,115 @@
+import React, { useContext, useState } from "react";
+import { ShopContext } from "../context/ShopContext";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+
+const MyOrder = ({ mode = "shipping", onPlaceOrder, submitting = false }) => {
+  const { cartItems, currency } = useContext(ShopContext);
+  const navigate = useNavigate();
+  const [couponCode, setCouponCode] = useState("");
+  const [appliedDiscount, setAppliedDiscount] = useState(0);
+
+  const cartSubtotal = cartItems.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
+  const deliveryFee = cartSubtotal > 0 ? 1000 : 0;
+  const discountThreshold = 5000000;
+  const defaultDiscount =
+    cartSubtotal >= discountThreshold ? cartSubtotal * 0.1 : 0;
+  const estimatedTotal =
+    cartSubtotal + deliveryFee - (appliedDiscount || defaultDiscount);
+
+  const handleApplyDiscount = () => {
+    if (couponCode.toLowerCase() === "save10") {
+      const discountValue = cartSubtotal * 0.1;
+      setAppliedDiscount(discountValue);
+      toast.success("Coupon applied — 10% off");
+    } else {
+      toast.error("Invalid coupon");
+    }
+  };
+
+  return (
+    <div className="w-full bg-white dark:bg-slate-900 rounded-lg shadow-md p-5 border text-sm">
+      <div className="flex justify-between items-start mb-4">
+        <h2 className="text-base font-semibold text-gray-800 dark:text-gray-100">My Order</h2>
+        {mode === "place" && (
+          <button className="text-[#5A4FCF] text-xs font-medium hover:underline">
+            Edit
+          </button>
+        )}
+      </div>
+
+      {cartItems.length > 0 ? (
+        <div className="space-y-4 mb-4">
+          {cartItems.map((item, idx) => (
+            <div key={idx} className="flex items-start gap-4">
+              <img
+                src={Array.isArray(item.image) ? item.image[0] : item.image}
+                alt={item.name}
+                className="w-16 h-16 rounded object-cover"
+              />
+              <div className="flex-1">
+                <p className="text-xs font-semibold text-gray-800 dark:text-gray-100">{item.name}</p>
+                <p className="text-[11px] text-gray-500 dark:text-gray-400">{item.description}</p>
+                <p className="text-xs mt-1"><span className="font-medium">QTY:</span> {item.quantity}</p>
+                <p className="text-sm font-medium mt-1">
+                  {currency} {(item.price * item.quantity).toLocaleString()}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p className="text-gray-500 dark:text-gray-400 text-sm mb-4">
+          Your cart is currently empty. Please add items before proceeding to checkout.
+        </p>
+      )}
+
+      <div className="flex justify-between py-2 text-gray-600 dark:text-gray-300 text-sm">
+        <span>Cart Subtotal</span>
+        <span>{currency} {cartSubtotal.toLocaleString()}</span>
+      </div>
+      <div className="flex justify-between py-2 font-semibold text-gray-900 dark:text-gray-100 text-sm">
+        <span>Estimated Total</span>
+        <span>{currency} {estimatedTotal.toLocaleString()}</span>
+      </div>
+
+      {mode === "place" && (
+        <>
+          <div className="mt-4">
+            <label className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-200">
+              Apply Discount
+            </label>
+            <div className="flex gap-2">
+              <input
+                type="text"
+                value={couponCode}
+                onChange={(e) => setCouponCode(e.target.value)}
+                placeholder="Enter Coupon Code"
+                className="flex-1 px-3 py-2 border rounded text-sm focus:outline-none"
+              />
+              <button
+                onClick={handleApplyDiscount}
+                className="bg-[#ff6600] text-white px-4 py-2 rounded text-sm hover:bg-blue-600"
+              >
+                Apply
+              </button>
+            </div>
+          </div>
+
+          <button
+            onClick={onPlaceOrder}
+            disabled={submitting || cartItems.length === 0}
+            className="w-full mt-4 bg-[#524D9B] text-white font-medium py-2 rounded hover:bg-[#483dc2] transition duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            {submitting ? "Placing order…" : "Place Order"}
+          </button>
+        </>
+      )}
+    </div>
+  );
+};
+
+export default MyOrder;

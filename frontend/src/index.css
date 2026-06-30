@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Prata&display=swap');
+
+@import "tailwindcss";
+
+/* Enable class-based dark mode (toggled via <html class="dark">) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+a.active hr{
+    display: block ;
+}
+
+*{
+    font-family: Outfit;
+}
+
+.prata-regular {
+    font-family: "Prata", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @media (max-width:640px){
+    a.active{
+        background-color: #2563eb;
+        color: white;
+    }
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+
+  @layer base {
+    body {
+      @apply bg-white text-gray-900 transition-colors duration-200
+             dark:bg-slate-900 dark:text-gray-100;
+    }
+  }
+
+  @layer utilities {
+    .form-label {
+      @apply block mb-1 text-sm font-medium text-gray-900 dark:text-gray-200;
+    }
+    .input {
+      @apply w-full rounded border border-gray-300 bg-white
+             px-3 py-2 text-sm placeholder:text-gray-400
+             outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600
+             dark:border-slate-700 dark:bg-slate-800 dark:text-gray-100
+             dark:placeholder:text-gray-500;
+    }
+  }

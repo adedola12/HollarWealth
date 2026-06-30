@@ -1,0 +1,73 @@
+import mongoose from "mongoose";
+
+const variantSchema = new mongoose.Schema(
+  {
+    attribute: { type: String },
+    value: { type: String },
+    inputCost: { type: Number, default: 0 },
+  },
+  { _id: false }
+);
+
+const productSchema = new mongoose.Schema(
+  {
+    productName: { type: String, required: true },
+    productCondition: {
+      type: String,
+      enum: ["New", "UK Used", "Fairly Used"],
+      required: true,
+    },
+    productCategory: { type: String },
+    brand: { type: String },
+
+    /* base specs */
+    baseSpecs: [
+      {
+        baseRam: String,
+        baseStorage: String,
+        baseCPU: String,
+        serialNumber: String,
+        assigned: { type: Boolean, default: false },
+      },
+    ],
+
+    /* pricing & qty */
+    quantity: { type: Number, default: 1 },
+    costPrice: { type: Number },
+    stockLocation: { type: String, default: "Lagos" },
+    supplier: String,
+
+    storageRam: String,
+    Storage: String,
+    sellingPrice: { type: Number },
+    variants: [variantSchema],
+
+    /* stock info */
+    availability: {
+      type: String,
+      enum: ["inStock", "restocking", "inactive"],
+      default: "inStock",
+    },
+    status: String,
+    reorderLevel: { type: Number, default: 0 },
+
+    productId: { type: String },
+
+    /* arrays */
+    // features: [specSchema],
+    images: [String], // Drive links
+
+    description: String,
+
+    /* storefront visibility — admin toggles which products show on the public site */
+    showInStorefront: { type: Boolean, default: false, index: true },
+  },
+  { timestamps: true }
+);
+
+// productSchema.index(
+//   { productName: 1 },
+//   { unique: true, collation: { locale: "en", strength: 2 } } // case-insensitive
+// );
+
+export default mongoose.model("Product", productSchema);

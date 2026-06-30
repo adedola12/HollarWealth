@@ -1,0 +1,82 @@
+import React, { useState } from "react";
+import { toast } from "react-toastify";
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const Subscribe = () => {
+  const [email, setEmail] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!EMAIL_RE.test(email.trim())) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
+    setSubmitting(true);
+    // No subscribe endpoint yet — store locally so the form is functional
+    // and the UI gives feedback. Wire to /api/subscribe when available.
+    try {
+      const stored = JSON.parse(
+        localStorage.getItem("horlawealth:subscribers") || "[]"
+      );
+      if (!stored.includes(email.trim().toLowerCase())) {
+        stored.push(email.trim().toLowerCase());
+        localStorage.setItem("horlawealth:subscribers", JSON.stringify(stored));
+      }
+      toast.success("Thanks for subscribing!");
+      setEmail("");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  return (
+    <div className="px-4 py-10">
+      <div className="max-w-[1500px] mx-auto bg-[#4338CA] text-white rounded-lg px-6 py-8 md:px-10 md:py-10">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex-1 text-center md:text-left">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2">
+              Join 2,000+ subscribers
+            </h3>
+            <p className="text-sm text-gray-200">
+              Stay in the loop with everything you need to know.
+            </p>
+          </div>
+
+          <div className="flex-1 w-full">
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col sm:flex-row items-center gap-4 sm:gap-2 w-full justify-end"
+            >
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                aria-label="Email address"
+                className="flex-1 bg-white dark:bg-slate-900 text-black dark:text-white rounded px-4 py-2 text-sm outline-none w-full sm:max-w-[300px]"
+              />
+              <button
+                type="submit"
+                disabled={submitting}
+                className="bg-blue-500 text-white text-sm font-semibold px-5 py-2 rounded hover:bg-blue-600 transition disabled:opacity-60"
+              >
+                {submitting ? "…" : "Subscribe"}
+              </button>
+            </form>
+            <p className="text-xs text-gray-300 mt-2 text-center sm:text-right">
+              We care about your data in our{" "}
+              <a href="#" className="underline">
+                privacy policy
+              </a>
+              .
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Subscribe;

@@ -42,7 +42,7 @@ const LatestCollection = () => {
         </p>
       ) : latestProducts.length === 0 ? (
         <p className="text-sm text-gray-500 dark:text-gray-400 py-10 text-center">
-          No new arrivals in the last 24 hours. Check back tomorrow.
+          New arrivals will appear here once products are added by an admin.
         </p>
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6">

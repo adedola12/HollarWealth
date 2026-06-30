@@ -3,9 +3,11 @@ import { assets } from '../assets/assets';
 
 const Brand = () => {
   return (
-    <div className="bg-[#f3f4f6] py-8">
+    <div className="bg-gray-100 dark:bg-slate-800 py-8">
       <div className="max-w-[1500px] mx-auto px-4">
-        <h3 className="text-[#5A4FCF] text-sm font-semibold mb-6">Brands</h3>
+        <h3 className="text-blue-600 dark:text-blue-400 text-sm font-semibold mb-6">
+          Brands we carry
+        </h3>
 
         <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 lg:gap-x-16 gap-y-10">
           <img src={assets.hp_img} alt="HP" className="h-10 md:h-10 lg:h-16 xl:h-20 object-contain grayscale opacity-80" />

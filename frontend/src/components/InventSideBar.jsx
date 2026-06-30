@@ -16,7 +16,7 @@ import {
   FiChevronsRight,
 } from "react-icons/fi";
 import { BsClipboard } from "react-icons/bs";
-import { assets } from "../assets/assets";
+import Logo from "./Logo";
 import { DEFAULT_PERMS_BY_TYPE } from "../utils/defaultPerms";
 
 const NAV_LINKS = [
@@ -82,11 +82,11 @@ export default function InventSideBar({
             to="/inventory"
             className={collapsed ? "md:hidden" : "block"}
           >
-            <img src={assets.color_logo} alt="Logo" className="w-32" />
+            <Logo />
           </Link>
           {collapsed && (
             <Link to="/inventory" className="hidden md:block">
-              <img src={assets.color_logo} alt="Logo" className="w-8" />
+              <Logo compact />
             </Link>
           )}
           <button

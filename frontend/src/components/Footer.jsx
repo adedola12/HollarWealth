@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
-import { assets } from "../assets/assets";
+import Logo from "./Logo";
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -10,13 +10,9 @@ const Footer = () => {
       <div className="max-w-full mx-auto">
         <div className="flex flex-col lg:flex-row justify-between items-center gap-6 mb-4">
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-            <img
-              src={assets.logo_black}
-              alt="Horlawealth Logo"
-              className="w-36 mb-2"
-            />
-            <p className="text-sm">
-              Suite 13, District Plaza, Francis Onwugbu, Abuja, Lagos
+            <Logo variant="light" className="mb-3" />
+            <p className="text-sm text-white/80">
+              Contact &amp; address — set by admin.
             </p>
           </div>
 

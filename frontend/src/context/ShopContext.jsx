@@ -1,5 +1,4 @@
 import { createContext, useState, useEffect, useMemo, useCallback } from "react";
-import { products as placeholderProducts } from "../assets/assets";
 import api from "../api";
 
 export const ShopContext = createContext();
@@ -62,7 +61,9 @@ const ShopContextProvider = ({ children }) => {
   );
 
   const hasStorefrontContent = normalised.length > 0;
-  const products = hasStorefrontContent ? normalised : placeholderProducts;
+  // Storefront shows ONLY real products added by an admin via the backend.
+  // No dummy fallback — empty sections render an "awaiting admin" state.
+  const products = normalised;
 
   /* ───────── cart ───────── */
   const [cartItems, setCartItems] = useState(() => {

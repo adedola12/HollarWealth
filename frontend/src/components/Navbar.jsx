@@ -16,7 +16,6 @@ import {
   FiBookOpen,
 } from "react-icons/fi";
 
-import { assets } from "../assets/assets";
 import { useSearch } from "../context/SearchContext";
 import { ShopContext } from "../context/ShopContext";
 import { useAuth } from "../context/AuthContext";
@@ -24,6 +23,7 @@ import { useAuth } from "../context/AuthContext";
 import MyCart from "./MyCart";
 import UserProfileView from "./UserProfileView";
 import ThemeToggle from "./ThemeToggle";
+import Logo from "./Logo";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -74,7 +74,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b bg-white dark:bg-slate-900 px-4 py-3 shadow-sm">
       <div className="mx-auto flex max-w-[1440px] items-center gap-4">
         <Link to="/" className="shrink-0">
-          <img src={assets.color_logo} alt="Horlawealth" className="w-28 sm:w-32" />
+          <Logo />
         </Link>
 
         <nav className="hidden lg:flex gap-6 text-sm font-medium text-gray-800 dark:text-gray-100">
@@ -216,7 +216,7 @@ export default function Navbar() {
         {/* header */}
         <div className="flex items-center justify-between border-b px-4 py-3">
           <Link to="/" onClick={closeDrawer} className="block">
-            <img src={assets.color_logo} alt="Horlawealth" className="w-28" />
+            <Logo />
           </Link>
           <div className="flex items-center gap-1">
             <ThemeToggle />

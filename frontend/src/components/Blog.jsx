@@ -32,7 +32,7 @@ const Blog = () => {
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-4">
         <div>
           <p className="text-xs text-gray-400">Latest posts</p>
-          <h2 className="text-xl sm:text-2xl font-bold text-[#222]">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100">
             Read Our Blog
           </h2>
           <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">
@@ -41,7 +41,7 @@ const Blog = () => {
         </div>
         <Link
           to="/blog"
-          className="self-start bg-[#5A4FCF] text-white px-4 py-2 text-sm rounded hover:bg-[#483dc2] transition"
+          className="self-start bg-blue-600 text-white px-4 py-2 text-sm rounded hover:bg-blue-700 transition"
         >
           View all posts
         </Link>

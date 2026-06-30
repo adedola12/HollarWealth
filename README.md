@@ -52,6 +52,25 @@ cp .env.example .env   # set VITE_API_URL
 npm run dev            # starts on http://localhost:5173
 ```
 
+### Seed an admin (first run)
+
+The database starts empty. Create an initial Admin user, a Store, and default UAC
+roles (safe & idempotent — re-running won't duplicate data):
+
+```bash
+cd backend
+npm run seed
+```
+
+Default credentials (override via `SEED_ADMIN_EMAIL` / `SEED_ADMIN_PASSWORD` env vars):
+
+```
+email:    admin@horlawealthgadget.com
+password: Admin@12345
+```
+
+Change the password after first login.
+
 ## Theming
 
 Dark mode is class-based (`<html class="dark">`), toggled via the sun/moon button in

@@ -25,7 +25,7 @@ const ProductItem = ({ id, image, name, price, description, rating }) => {
   return (
     <Link
       to={`/product/${id}`}
-      className="block rounded-lg border border-gray-200 dark:border-slate-700 overflow-hidden shadow-sm bg-white dark:bg-slate-900 transition hover:shadow-md"
+      className="group block rounded-lg border border-gray-200 dark:border-slate-700 overflow-hidden shadow-sm bg-white dark:bg-slate-900 transition duration-200 hover:-translate-y-1 hover:shadow-lg"
     >
       {/* Image + Tag + Favorite */}
       <div className="relative overflow-hidden">
@@ -36,7 +36,7 @@ const ProductItem = ({ id, image, name, price, description, rating }) => {
           type="button"
           onClick={handleHeart}
           aria-label={inWishlist ? "Remove from wishlist" : "Add to wishlist"}
-          className="absolute top-2 right-2 bg-white dark:bg-slate-900 p-1.5 rounded-full shadow cursor-pointer hover:scale-110 transition"
+          className="absolute top-2 right-2 z-10 bg-white dark:bg-slate-900 p-2 rounded-full shadow cursor-pointer transition duration-200 hover:shadow-md active:scale-90"
         >
           {inWishlist ? (
             <FaHeart className="text-blue-500 text-sm" />
@@ -47,7 +47,8 @@ const ProductItem = ({ id, image, name, price, description, rating }) => {
         <img
           src={imageSrc || "/fallback.png"}
           alt={name}
-          className="w-full h-48 object-cover transition-transform duration-300 hover:scale-110"
+          className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+          loading="lazy"
         />
       </div>
 
@@ -73,7 +74,7 @@ const ProductItem = ({ id, image, name, price, description, rating }) => {
           {currency} {price?.toLocaleString()}
         </p>
         <button
-          className="mt-2 bg-[#5A4FCF] text-white text-xs font-semibold w-full py-2 rounded hover:bg-[#483dc2] transition"
+          className="mt-2 bg-blue-600 text-white text-xs font-semibold w-full py-2.5 rounded cursor-pointer transition-colors duration-200 hover:bg-blue-700 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
           onClick={(e) => {
             e.preventDefault();
             addToCart({ id, image, name, price, description, rating, _id: id });

@@ -40,6 +40,12 @@ a.active hr{
       @apply bg-white text-gray-900 transition-colors duration-200
              dark:bg-slate-900 dark:text-gray-100;
     }
+
+    /* Tailwind v4 preflight sets buttons to cursor: default — restore pointer
+       on every enabled button so interactive elements read as clickable */
+    button:not(:disabled) {
+      cursor: pointer;
+    }
   }
 
   @layer utilities {

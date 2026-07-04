@@ -107,9 +107,10 @@ export default function Navbar() {
 
           <ThemeToggle className="hidden sm:grid" />
 
+          {/* below lg the floating BottomMenu owns wishlist/cart/account */}
           <Link
             to="/wishlist"
-            className="relative hidden sm:inline-flex"
+            className="relative hidden lg:inline-flex"
             aria-label="Wishlist"
           >
             <FiHeart className="w-5 h-5" />
@@ -122,7 +123,7 @@ export default function Navbar() {
 
           <button
             onClick={() => setShowCart(true)}
-            className="relative"
+            className="relative hidden cursor-pointer lg:inline-flex"
             aria-label="Cart"
           >
             <FiShoppingCart className="w-5 h-5" />
@@ -134,7 +135,7 @@ export default function Navbar() {
           </button>
 
           {/* profile */}
-          <div className="relative hidden sm:block">
+          <div className="relative hidden lg:block">
             <button
               type="button"
               onClick={() =>

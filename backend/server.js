@@ -28,10 +28,11 @@ app.use(cookieParser());
 const allowlist = [
   "http://localhost:5173",
   "https://horlawealth-gadget.vercel.app",
-  "https://horlawealth-gadget.vercel.app",
   "https://official-website-gold-eight.vercel.app",
   "https://www.horlawealthgadget.com",
   "https://horlawealthgadget.com",
+  // deployed frontend origin (e.g. CloudFront domain), set per environment
+  ...(process.env.CLIENT_URL ? [process.env.CLIENT_URL] : []),
 ];
 
 const corsOptions = {

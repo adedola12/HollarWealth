@@ -37,7 +37,7 @@ const About = () => {
   return (
     <div className="flex flex-col min-h-screen bg-[#fafafa]">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#524D9B] to-[#3a3573] text-white">
+      <section className="bg-gradient-to-br from-blue-600 to-[#3a3573] text-white">
         <div className="max-w-[1100px] mx-auto px-4 py-16 sm:py-24">
           <p className="text-xs uppercase tracking-wider text-blue-300 font-semibold mb-3">
             About us

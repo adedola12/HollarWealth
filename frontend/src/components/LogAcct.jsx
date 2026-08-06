@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FcGoogle } from "react-icons/fc";
+import { motion as Motion, useReducedMotion } from "framer-motion";
 import api from "../api";
 import { useAuth } from "../context/AuthContext";
 
@@ -13,6 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
 export default function LogAcct() {
   const { login } = useAuth();
   const navigate = useNavigate();
+  const reduceMotion = useReducedMotion();
   const [formData, setFormData] = useState({ identifier: "", password: "" });
   const [loading, setLoading] = useState(false);
 
@@ -36,7 +38,6 @@ export default function LogAcct() {
         password: formData.password,
       });
 
-      // login(data.token, data); // <-- context handles everything
       login(
         data.token, // JWT
         {
@@ -57,8 +58,13 @@ export default function LogAcct() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#fafafa] px-4 py-10">
-      <div className="w-full max-w-lg rounded-xl bg-white dark:bg-slate-900 p-6 shadow-md sm:p-10">
+    <div className="flex min-h-screen items-center justify-center bg-[#fafafa] dark:bg-slate-950 px-4 py-10">
+      <Motion.div
+        className="w-full max-w-lg rounded-2xl bg-white dark:bg-slate-900 p-6 shadow-lg shadow-blue-600/5 ring-1 ring-gray-100 dark:ring-slate-800 sm:p-10"
+        initial={reduceMotion ? false : { opacity: 0, y: 24, scale: 0.98 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      >
         <h2 className="mb-1 text-xl font-semibold text-gray-800 dark:text-gray-100 sm:text-2xl">
           Log In
         </h2>
@@ -69,35 +75,31 @@ export default function LogAcct() {
 
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
-            <label className="mb-1 block text-sm font-medium">
-              Phone Number or Email
-            </label>
+            <label className="form-label">Phone Number or Email</label>
             <input
               name="identifier"
               value={formData.identifier}
               onChange={handleChange}
-              className="w-full rounded border px-4 py-2 text-sm"
+              className="input"
               placeholder="you@example.com"
+              autoComplete="username"
             />
           </div>
 
           <div>
-            <label className="mb-1 block text-sm font-medium">Password</label>
+            <label className="form-label">Password</label>
             <input
               type="password"
               name="password"
               value={formData.password}
               onChange={handleChange}
-              className="w-full rounded border px-4 py-2 text-sm"
-              placeholder="••••••"
+              className="input"
+              placeholder="••••••••"
+              autoComplete="current-password"
             />
           </div>
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full rounded bg-[#5A4FCF] py-2 text-sm font-medium text-white transition hover:bg-[#483dc2] disabled:opacity-60"
-          >
+          <button type="submit" disabled={loading} className="btn-primary w-full">
             {loading ? "Signing in…" : "Log in"}
           </button>
 
@@ -105,30 +107,25 @@ export default function LogAcct() {
             <span className="px-2">or</span>
           </div>
 
-          <button
-            type="button"
-            className="flex w-full items-center justify-center gap-2 rounded border border-gray-300 dark:border-slate-700 py-2 text-sm hover:bg-gray-50 dark:hover:bg-slate-800"
-            disabled
-          >
+          <button type="button" className="btn-outline w-full" disabled>
             <FcGoogle className="text-lg" /> Log in with Google
           </button>
         </form>
-        
-        <div className="forgot-password ">
-          <Link to={"/forgot-password"} className="text-purple-800 text-sm font-bold">
+
+        <div className="mt-4">
+          <Link to={"/forgot-password"} className="link-brand text-sm">
             Forgot Password?
           </Link>
         </div>
-        <div className="flex items-center justify-center text-xs text-gray-500 dark:text-gray-400 mt-3">
+        <div className="mt-3 flex items-center justify-center text-xs text-gray-500 dark:text-gray-400">
           <span className="px-2">
             Dont have an account?{" "}
-            <Link to={"/signup"} className="text-purple-800 text-bold">
+            <Link to={"/signup"} className="link-brand">
               Sign Up Now!!!
             </Link>
           </span>
         </div>
-      
-      </div>
+      </Motion.div>
     </div>
   );
 }

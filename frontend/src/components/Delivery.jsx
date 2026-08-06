@@ -43,7 +43,7 @@ const Delivery = () => {
         {/* Text and CTA */}
         <div className="z-10 text-center sm:text-left max-w-[90%] sm:max-w-[60%] px-4 sm:px-8">
           <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-[#222] mb-4">
-            Free delivery on all <span className="text-[#5A4FCF]">Lagos Orders</span>
+            Free delivery on all <span className="text-blue-600">Lagos Orders</span>
           </h2>
           <Link
             to="/shop"

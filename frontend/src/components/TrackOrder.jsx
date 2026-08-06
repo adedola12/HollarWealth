@@ -60,7 +60,7 @@ const TrackOrder = () => {
 
           <button
             onClick={handleTrack}
-            className="w-full bg-[#5A4FCF] text-white py-2 rounded hover:bg-[#483dc2] transition"
+            className="btn-primary w-full"
           >
             Track Order
           </button>

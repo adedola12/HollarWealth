@@ -6,7 +6,7 @@ import Logo from "./Logo";
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-[#524D9B] text-white px-4 md:px-10 py-6">
+    <footer className="bg-blue-600 text-white px-4 md:px-10 py-6">
       <div className="max-w-full mx-auto">
         <div className="flex flex-col lg:flex-row justify-between items-center gap-6 mb-4">
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left">

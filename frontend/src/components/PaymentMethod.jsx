@@ -6,7 +6,7 @@ const paymentOptions = [
   {
     label: "Pay with Bank Transfer",
     value: "bank",
-    icon: <FaUniversity className="text-purple-600 text-lg" />,
+    icon: <FaUniversity className="text-blue-600 text-lg" />,
   },
   {
     label: "Pay with Flutterwave",
@@ -25,8 +25,8 @@ const PaymentMethod = ({ selected, onChange }) => {
             key={option.value}
             className={`flex items-center justify-between border rounded-lg px-4 py-3 cursor-pointer transition ${
               selected === option.label
-                ? "bg-purple-100 border-purple-500"
-                : "bg-gray-50 dark:bg-slate-900 border-gray-200 dark:border-slate-700 hover:border-purple-400"
+                ? "bg-blue-100 border-blue-500"
+                : "bg-gray-50 dark:bg-slate-900 border-gray-200 dark:border-slate-700 hover:border-blue-400"
             }`}
           >
             <div className="flex items-center gap-3">
@@ -41,7 +41,7 @@ const PaymentMethod = ({ selected, onChange }) => {
               value={option.value}
               checked={selected === option.label}
               onChange={() => onChange(option.label)} // store label like "Pay with Flutterwave"
-              className="form-radio accent-purple-600"
+              className="form-radio accent-blue-600"
             />
           </label>
         ))}

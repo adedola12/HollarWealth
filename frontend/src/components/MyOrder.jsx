@@ -35,7 +35,7 @@ const MyOrder = ({ mode = "shipping", onPlaceOrder, submitting = false }) => {
       <div className="flex justify-between items-start mb-4">
         <h2 className="text-base font-semibold text-gray-800 dark:text-gray-100">My Order</h2>
         {mode === "place" && (
-          <button className="text-[#5A4FCF] text-xs font-medium hover:underline">
+          <button className="text-blue-600 text-xs font-medium hover:underline">
             Edit
           </button>
         )}
@@ -102,7 +102,7 @@ const MyOrder = ({ mode = "shipping", onPlaceOrder, submitting = false }) => {
           <button
             onClick={onPlaceOrder}
             disabled={submitting || cartItems.length === 0}
-            className="w-full mt-4 bg-[#524D9B] text-white font-medium py-2 rounded hover:bg-[#483dc2] transition duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
+            className="btn-primary w-full mt-4"
           >
             {submitting ? "Placing order…" : "Place Order"}
           </button>

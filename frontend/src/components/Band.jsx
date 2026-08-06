@@ -4,7 +4,7 @@ import { FaTruck, FaLock, FaPhoneAlt } from 'react-icons/fa';
 const Band = () => {
   return (
     <div className="max-w-[1500px] mx-auto my-10 px-4">
-      <div className="bg-[#5A4FCF] text-white rounded-md py-6 px-6 flex flex-col sm:flex-row justify-center items-center gap-6 lg:gap-30 xl:gap-40">
+      <div className="bg-blue-600 text-white rounded-md py-6 px-6 flex flex-col sm:flex-row justify-center items-center gap-6 lg:gap-30 xl:gap-40">
         {/* Item 1 */}
         <div className="flex items-center gap-4 text-center sm:text-left max-w-xs">
           <FaTruck className="text-3xl" />

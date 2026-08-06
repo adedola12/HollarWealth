@@ -113,7 +113,7 @@ export default function SelectedItemCard({
             </p>
 
             {selectedArray.map((v) => (
-              <p key={v.label} className="text-xs text-purple-600">
+              <p key={v.label} className="text-xs text-blue-600">
                 {v.label} {v.cost ? `( +₦${v.cost.toLocaleString()} )` : ""}
               </p>
             ))}

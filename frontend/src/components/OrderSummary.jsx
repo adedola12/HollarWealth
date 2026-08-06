@@ -50,7 +50,7 @@ const OrderSummary = ({ mode = "shipping", onPlaceOrder }) => {
       <div className="flex justify-between items-start mb-4">
         <h2 className="text-base font-semibold text-gray-800 dark:text-gray-100">My Order</h2>
         {mode === "place" && (
-          <button className="text-[#5A4FCF] text-xs font-medium hover:underline">
+          <button className="text-blue-600 text-xs font-medium hover:underline">
             Edit
           </button>
         )}
@@ -123,7 +123,7 @@ const OrderSummary = ({ mode = "shipping", onPlaceOrder }) => {
       {/* CTA Button */}
       <button
         onClick={mode === "place" ? handlePlaceOrder : handleCheckout}
-        className="w-full mt-4 bg-[#5A4FCF] text-white font-medium py-2 rounded hover:bg-[#483dc2] transition duration-200"
+        className="btn-primary w-full mt-4"
       >
         {mode === "place" ? "Place Order" : "Checkout"}
       </button>

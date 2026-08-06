@@ -428,7 +428,7 @@ function ActionMenu({ order: o, nav, close, tab }) {
     >
       {tab === "pending" && (
         <MenuItem
-          icon={<FiStar className="mr-2 text-indigo-600" />}
+          icon={<FiStar className="mr-2 text-blue-600" />}
           label="Manage Order Shipment"
           onClick={() => {
             close();

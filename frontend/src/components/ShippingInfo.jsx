@@ -74,7 +74,7 @@ const ShippingInfo = ({ onContinue }) => {
           <input name="email" placeholder="Email (optional)" onChange={handleChange} className="w-full border rounded px-4 py-2" />
         </div>
 
-        <button type="submit" className="w-full bg-[#5A4FCF] text-white py-2 rounded">
+        <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded">
           Continue
         </button>
       </form>

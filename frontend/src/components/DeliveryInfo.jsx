@@ -19,7 +19,7 @@ const DeliveryInfo = ({
         <h3 className="font-semibold text-gray-800 dark:text-gray-100">Delivery Information</h3>
         {!readOnly && (
           <button
-            className="bg-[#5A4FCF] text-white text-xs px-4 py-2 rounded hover:bg-[#483dc2] transition"
+            className="bg-blue-600 text-white text-xs px-4 py-2 rounded hover:bg-blue-700 transition"
             onClick={onAddNew}
           >
             Add new shipping details
@@ -33,13 +33,13 @@ const DeliveryInfo = ({
           <div
             key={index}
             className={`relative bg-[#f3f2fc] p-4 rounded text-gray-700 dark:text-gray-200 space-y-2 border cursor-pointer ${
-              selectedIndex === index ? "border-[#5A4FCF]" : "border-transparent"
+              selectedIndex === index ? "border-blue-600" : "border-transparent"
             }`}
             onClick={() => onSelect?.(index)}
           >
             {readOnly && (
               <button
-                className="absolute right-4 top-4 text-[#5A4FCF] flex items-center gap-1 text-xs"
+                className="absolute right-4 top-4 text-blue-600 flex items-center gap-1 text-xs"
                 onClick={(e) => {
                   e.stopPropagation();
                   onEdit?.(index);
@@ -100,7 +100,7 @@ const DeliveryInfo = ({
         <div className="pt-6 text-right">
           <button
             onClick={onNext}
-            className="bg-[#5A4FCF] text-white px-6 py-2 rounded hover:bg-[#483dc2] transition"
+            className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition"
           >
             Next
           </button>

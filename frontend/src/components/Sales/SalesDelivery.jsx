@@ -230,7 +230,7 @@ export default function SalesDelivery({
             onClick={() => setMethod(m.key)}
             className={`flex items-center justify-between p-4 border rounded-lg cursor-pointer ${
               method === m.key
-                ? "border-purple-500 bg-purple-50"
+                ? "border-blue-500 bg-blue-50"
                 : "border-gray-200 dark:border-slate-700 hover:border-gray-300"
             }`}
           >
@@ -242,7 +242,7 @@ export default function SalesDelivery({
               type="radio"
               checked={method === m.key}
               onChange={() => setMethod(m.key)}
-              className="form-radio text-purple-500"
+              className="form-radio text-blue-500"
             />
           </div>
         ))}

@@ -633,7 +633,7 @@ function ActionMenu({
               />
             ))}
           <MenuItem
-            icon={<FiStar className="mr-2 text-purple-600" />}
+            icon={<FiStar className="mr-2 text-blue-600" />}
             label="View Shipment"
             onClick={() => onOpenShipment(o, true)}
           />
@@ -642,7 +642,7 @@ function ActionMenu({
 
       {o.status === "Delivered" && (
         <MenuItem
-          icon={<FiStar className="mr-2 text-purple-600" />}
+          icon={<FiStar className="mr-2 text-blue-600" />}
           label="View Order Details"
           onClick={() => onViewOrder(o)}
         />

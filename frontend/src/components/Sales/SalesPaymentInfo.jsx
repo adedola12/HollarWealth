@@ -247,13 +247,13 @@ export default function SalesPaymentInfo({
         </div>
 
         {/* Payment Box */}
-        <div className="border-2 border-purple-500 rounded-lg overflow-hidden">
-          <div className="bg-purple-50 px-4 py-2">
-            <span className="text-purple-700 font-semibold">
+        <div className="border-2 border-blue-500 rounded-lg overflow-hidden">
+          <div className="bg-blue-50 px-4 py-2">
+            <span className="text-blue-700 font-semibold">
               Payment method
             </span>
           </div>
-          <div className="border-t border-purple-500 px-4 py-4 grid grid-cols-1 sm:grid-cols-2">
+          <div className="border-t border-blue-500 px-4 py-4 grid grid-cols-1 sm:grid-cols-2">
             <span className="text-gray-700 dark:text-gray-200 font-medium">Amount To Pay</span>
             <div className="flex justify-end">
               <span className="bg-gray-100 dark:bg-slate-800 px-3 py-1 rounded-lg font-semibold">

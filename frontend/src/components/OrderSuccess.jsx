@@ -25,7 +25,7 @@ export default function OrderSuccess() {
 
   return (
     <div className="w-full text-center px-4 pt-16 pb-10">
-      <FaCheckCircle className="text-purple-700 text-8xl mb-6 mx-auto" />
+      <FaCheckCircle className="text-blue-700 text-8xl mb-6 mx-auto" />
       <h2 className="text-3xl font-semibold text-gray-800 dark:text-gray-100 mb-2">Order Successful!</h2>
       <p className="text-base text-gray-600 dark:text-gray-300 mb-6">
         Your order #{order._id} has been placed successfully.
@@ -41,7 +41,7 @@ export default function OrderSuccess() {
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
         <button
           onClick={() => navigate("/signup")}
-          className="bg-purple-700 text-white py-2 px-6 rounded"
+          className="bg-blue-700 text-white py-2 px-6 rounded"
         >
           Register to Track Your Order
         </button>

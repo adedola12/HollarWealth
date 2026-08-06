@@ -74,7 +74,7 @@ const Blog = () => {
                   className="w-full h-48 object-cover"
                 />
               ) : (
-                <div className="w-full h-48 bg-gradient-to-br from-blue-100 to-purple-100" />
+                <div className="w-full h-48 bg-gradient-to-br from-blue-100 to-sky-200" />
               )}
               <div className="p-4 flex-1 flex flex-col">
                 <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">

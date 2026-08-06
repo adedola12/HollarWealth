@@ -34,7 +34,7 @@ const OrderInfo = () => {
 
   return (
     <div className="w-full text-center px-4 pt-16 pb-10">
-      <FaCheckCircle className="text-purple-700 text-[70px] md:text-[90px] mb-6 mx-auto" />
+      <FaCheckCircle className="text-blue-700 text-[70px] md:text-[90px] mb-6 mx-auto" />
       <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
         Order Successful!
       </h2>
@@ -80,7 +80,7 @@ const OrderInfo = () => {
       <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-xl mx-auto px-4">
         <button
           onClick={() => navigate("/signup")}
-          className="bg-[#5A4FCF] text-white text-sm font-medium py-2 px-6 rounded w-full sm:w-auto hover:bg-[#483dc2] transition"
+          className="bg-blue-600 text-white text-sm font-medium py-2 px-6 rounded w-full sm:w-auto hover:bg-blue-700 transition"
         >
           Register to Track Your Order
         </button>

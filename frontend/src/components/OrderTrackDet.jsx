@@ -43,7 +43,7 @@ const OrderTrackDet = ({ orderId = '00000', trackingId = 'IZ99AA1234567890' }) =
           { icon: FaCheckCircle, label: 'Delivered', active: false },
         ].map(({ icon: Icon, label, active }, index) => (
           <div key={index} className="flex-1 flex flex-col items-center">
-            <Icon className={`text-2xl mb-1 ${active ? 'text-purple-600' : 'text-gray-400'}`} />
+            <Icon className={`text-2xl mb-1 ${active ? 'text-blue-600' : 'text-gray-400'}`} />
             <span className={`text-xs ${active ? 'text-gray-700 dark:text-gray-200 font-medium' : 'text-gray-400'}`}>
               {label}
             </span>
@@ -86,15 +86,15 @@ const OrderTrackDet = ({ orderId = '00000', trackingId = 'IZ99AA1234567890' }) =
         <div>
           <h4 className="font-semibold mb-3">Delivery Address</h4>
           <p className="flex items-center gap-2 mb-2">
-            <FaMapMarkerAlt className="text-purple-600" />
+            <FaMapMarkerAlt className="text-blue-600" />
             {delivery.address || 'Not Provided'}
           </p>
           <p className="flex items-center gap-2 mb-2">
-            <FaPhoneAlt className="text-purple-600" />
+            <FaPhoneAlt className="text-blue-600" />
             {delivery.phone || 'Not Provided'}
           </p>
           <p className="flex items-center gap-2">
-            <FaEnvelope className="text-purple-600" />
+            <FaEnvelope className="text-blue-600" />
             {delivery.email || 'Not Provided'}
           </p>
         </div>
@@ -103,11 +103,11 @@ const OrderTrackDet = ({ orderId = '00000', trackingId = 'IZ99AA1234567890' }) =
         <div>
           <h4 className="font-semibold mb-3">Shipping Details</h4>
           <p className="flex items-center gap-2 mb-2">
-            <FaMapMarkerAlt className="text-purple-600" />
+            <FaMapMarkerAlt className="text-blue-600" />
             Carrier: GIG
           </p>
           <p className="flex items-center gap-2">
-            <FaTruck className="text-purple-600" />
+            <FaTruck className="text-blue-600" />
             Tracking Number: {trackingId}
           </p>
         </div>

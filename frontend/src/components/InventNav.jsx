@@ -85,7 +85,7 @@ export default function InventNav({
         {(isAdd || isEdit) && (
           <>
             <button onClick={goBack}
-                    className="rounded p-1.5 text-lg text-purple-600 hover:bg-purple-50">
+                    className="rounded p-1.5 text-lg text-blue-600 hover:bg-blue-50">
               <FaArrowLeft />
             </button>
             <span onClick={goBack}

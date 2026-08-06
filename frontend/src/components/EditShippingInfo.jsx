@@ -137,7 +137,7 @@ const EditShippingInfo = ({ onContinue, initialData }) => {
           />
         </div>
 
-        <button type="submit" className="w-full bg-[#5A4FCF] text-white py-2 rounded">
+        <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded">
           Update & Continue
         </button>
       </form>

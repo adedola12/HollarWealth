@@ -49,7 +49,7 @@ const MyCart = () => {
         <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">Subtotal:</p>
         <p className="text-xl font-bold">₦{subtotal.toLocaleString()}</p>
         <button
-          className="w-full bg-[#5A4FCF] text-white py-2 mt-4 rounded"
+          className="btn-primary w-full mt-4"
           onClick={handleCheckout}
         >
           Checkout

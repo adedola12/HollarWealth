@@ -121,7 +121,7 @@ const InventTop = () => {
         <div className="flex gap-3">
           <button
             onClick={handleExport}
-            className="border border-purple-600 text-purple-700 px-4 py-2 rounded-md text-sm font-medium flex items-center gap-2 hover:bg-purple-50 transition"
+            className="border border-blue-600 text-blue-700 px-4 py-2 rounded-md text-sm font-medium flex items-center gap-2 hover:bg-blue-50 transition"
           >
             <FiDownload />
             Export

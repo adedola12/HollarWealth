@@ -3,10 +3,12 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
+import { motion as Motion, useReducedMotion } from "framer-motion";
 import api from "../api";
 
 const RegAccount = () => {
   const navigate = useNavigate();
+  const reduceMotion = useReducedMotion();
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -83,9 +85,14 @@ const RegAccount = () => {
 
   /* ------------------------- JSX (unchanged) ------------------------- */
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#fafafa] px-4 py-10">
+    <div className="min-h-screen flex items-center justify-center bg-[#fafafa] dark:bg-slate-950 px-4 py-10">
       <ToastContainer />
-      <div className="w-full max-w-2xl bg-white dark:bg-slate-900 rounded-xl shadow-md p-6 sm:p-10">
+      <Motion.div
+        className="w-full max-w-2xl bg-white dark:bg-slate-900 rounded-2xl shadow-lg shadow-blue-600/5 ring-1 ring-gray-100 dark:ring-slate-800 p-6 sm:p-10"
+        initial={reduceMotion ? false : { opacity: 0, y: 24, scale: 0.98 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      >
         <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-1">
           Register Account
         </h2>
@@ -208,7 +215,7 @@ const RegAccount = () => {
           <button
             type="submit"
             disabled={loading}
-            className="bg-[#5A4FCF] text-white font-medium py-2 rounded w-full hover:bg-[#483dc2] transition disabled:opacity-60"
+            className="btn-primary w-full"
           >
             {loading ? "Processing…" : "Register"}
           </button>
@@ -232,12 +239,12 @@ const RegAccount = () => {
           Already have an account?{" "}
           <Link
             to="/login"
-            className="text-[#524D9B] font-medium hover:underline"
+            className="text-blue-600 font-medium hover:underline"
           >
             Sign in
           </Link>
         </div>
-      </div>
+      </Motion.div>
     </div>
   );
 };

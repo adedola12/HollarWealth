@@ -65,9 +65,6 @@ router.delete("/wishlist/:productId", protect, removeFromWishlist);
 // Secure this endpoint (admin) and add search with ?q=
 router.get("/all", protect, isAdmin, getAllUsers);
 
-// Admin update (role/phone/location)
-router.put("/:id", protect, isAdmin, adminUpdateUser);
-
 router.post("/register", registerUser);
 router.post("/login", authUser);
 router.post("/admin-create", protect, isAdmin, adminCreateUser);
@@ -116,6 +113,10 @@ router.get(
 router
   // PUT  /api/users/:id/permissions   (admin only)
   .put("/:id/permissions", protect, isAdmin, updateUserPermissions);
+
+// Admin update (role/phone/location) — param routes stay below literal
+// paths like /profile and /change-password or they swallow them
+router.put("/:id", protect, isAdmin, adminUpdateUser);
 
 router.get("/:id", protect, isAdmin, getUserById);
 router.get("/:id/orders", protect, isAdmin, getUserOrders);

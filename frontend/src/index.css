@@ -53,10 +53,33 @@ a.active hr{
       @apply block mb-1 text-sm font-medium text-gray-900 dark:text-gray-200;
     }
     .input {
-      @apply w-full rounded border border-gray-300 bg-white
+      @apply w-full rounded-lg border border-gray-300 bg-white
              px-3 py-2 text-sm placeholder:text-gray-400
-             outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600
+             outline-none transition-colors duration-150
+             focus:border-blue-600 focus:ring-2 focus:ring-blue-600/25
              dark:border-slate-700 dark:bg-slate-800 dark:text-gray-100
-             dark:placeholder:text-gray-500;
+             dark:placeholder:text-gray-500 dark:focus:border-blue-400
+             dark:focus:ring-blue-400/25;
+    }
+    /* brand buttons — logo blue, subtle press feedback */
+    .btn-primary {
+      @apply inline-flex items-center justify-center gap-2 rounded-lg
+             bg-blue-600 px-4 py-2 text-sm font-medium text-white
+             transition duration-150 hover:bg-blue-700 active:scale-[0.98]
+             disabled:pointer-events-none disabled:opacity-60
+             dark:bg-blue-500 dark:hover:bg-blue-600;
+    }
+    .btn-outline {
+      @apply inline-flex items-center justify-center gap-2 rounded-lg
+             border border-gray-300 bg-transparent px-4 py-2 text-sm
+             font-medium transition duration-150 hover:border-blue-600
+             hover:text-blue-600 active:scale-[0.98]
+             disabled:pointer-events-none disabled:opacity-60
+             dark:border-slate-700 dark:hover:border-blue-400
+             dark:hover:text-blue-400;
+    }
+    .link-brand {
+      @apply font-medium text-blue-600 transition-colors
+             hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300;
     }
   }

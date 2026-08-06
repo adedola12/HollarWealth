@@ -496,7 +496,7 @@ export default function SalesTable() {
                             : r.status === "Shipped"
                             ? "bg-green-100 text-green-800"
                             : r.status === "Invoice"
-                            ? "bg-purple-100 text-purple-800"
+                            ? "bg-blue-100 text-blue-700"
                             : "bg-gray-100 dark:bg-slate-800 text-gray-800 dark:text-gray-100"
                         }`}
                       >

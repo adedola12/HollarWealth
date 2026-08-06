@@ -132,7 +132,7 @@ const BlogList = () => {
                     className="w-full h-64 lg:h-full object-cover"
                   />
                 ) : (
-                  <div className="w-full h-64 lg:h-full bg-gradient-to-br from-blue-100 to-purple-100" />
+                  <div className="w-full h-64 lg:h-full bg-gradient-to-br from-blue-100 to-sky-200" />
                 )}
                 <div className="p-6 sm:p-8 flex flex-col justify-center">
                   <span className="text-xs text-blue-500 font-semibold uppercase tracking-wider mb-2">
@@ -176,7 +176,7 @@ const BlogList = () => {
                         className="h-44 w-full object-cover"
                       />
                     ) : (
-                      <div className="h-44 w-full bg-gradient-to-br from-blue-100 to-purple-100" />
+                      <div className="h-44 w-full bg-gradient-to-br from-blue-100 to-sky-200" />
                     )}
                     <div className="p-4 flex-1 flex flex-col">
                       <h3 className="font-semibold text-gray-900 dark:text-gray-100 line-clamp-2">

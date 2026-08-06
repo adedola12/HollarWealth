@@ -5,17 +5,17 @@ const deliveryOptions = [
   {
     label: "Logistics",
     value: "logistics",
-    icon: <FaTruck className="text-purple-500" />,
+    icon: <FaTruck className="text-blue-500" />,
   },
   {
     label: "Park Pick up",
     value: "park",
-    icon: <FaWarehouse className="text-purple-500" />,
+    icon: <FaWarehouse className="text-blue-500" />,
   },
   {
     label: "Self Pickup",
     value: "self",
-    icon: <FaWalking className="text-purple-500" />,
+    icon: <FaWalking className="text-blue-500" />,
   },
 ];
 
@@ -29,8 +29,8 @@ const DeliveryMethod = ({ selected, onChange }) => {
             key={option.value}
             className={`flex items-center justify-between border rounded-lg px-4 py-3 cursor-pointer transition ${
               selected === option.label
-                ? "bg-purple-100 border-purple-500"
-                : "bg-gray-50 dark:bg-slate-900 border-gray-200 dark:border-slate-700 hover:border-purple-400"
+                ? "bg-blue-100 border-blue-500"
+                : "bg-gray-50 dark:bg-slate-900 border-gray-200 dark:border-slate-700 hover:border-blue-400"
             }`}
           >
             <div className="flex items-center gap-3">
@@ -45,7 +45,7 @@ const DeliveryMethod = ({ selected, onChange }) => {
               value={option.value}
               checked={selected === option.label}
               onChange={() => onChange(option.label)} // Pass label like "Park Pick up"
-              className="form-radio accent-purple-600"
+              className="form-radio accent-blue-600"
             />
           </label>
         ))}

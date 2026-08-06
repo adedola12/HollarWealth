@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import * as XLSX from "xlsx";
 import { Link } from "react-router-dom";
 import { FiDownload, FiBox } from "react-icons/fi";
 import { toast } from "react-toastify";
@@ -73,6 +72,7 @@ const InventTop = () => {
   /* ───────── EXPORT TO EXCEL ───────── */
   const handleExport = async () => {
     try {
+      const XLSX = await import("xlsx");
       // grab everything (raise limit as needed)
       const { data } = await api.get("/api/products", {
         params: { limit: 10000 },

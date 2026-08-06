@@ -1,8 +1,6 @@
 // src/components/SalesPrintPreview.jsx
 import React, { useRef } from "react"
 import { FiX, FiPrinter } from "react-icons/fi"
-import html2canvas from "html2canvas"
-import jsPDF from "jspdf"
 
 export default function SalesPrintPreview({
   onClose,
@@ -18,6 +16,10 @@ export default function SalesPrintPreview({
   const handlePrintPDF = async () => {
     console.group("📄 Print to PDF")
     try {
+      const [{ default: html2canvas }, { default: jsPDF }] = await Promise.all([
+        import("html2canvas"),
+        import("jspdf"),
+      ])
       // 1) Clone
       const original = ref.current
       console.log("1) original element:", original)

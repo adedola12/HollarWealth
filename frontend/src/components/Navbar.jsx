@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import { toast } from "react-toastify";
 import {
   FiSearch,
@@ -154,22 +155,24 @@ export default function Navbar() {
                 <FiUser className="h-6 w-6" />
               )}
             </button>
-            {user && showProfile && (
-              <div
-                className="absolute right-0 top-9 z-50"
-                onMouseLeave={() => setShowProfile(false)}
-              >
-                <UserProfileView
-                  user={user}
-                  onLogout={() => {
-                    logout();
-                    toast.success("Logged out");
-                    navigate("/");
-                  }}
-                  onClose={() => setShowProfile(false)}
-                />
-              </div>
-            )}
+            <AnimatePresence>
+              {user && showProfile && (
+                <div
+                  className="absolute right-0 top-9 z-50"
+                  onMouseLeave={() => setShowProfile(false)}
+                >
+                  <UserProfileView
+                    user={user}
+                    onLogout={() => {
+                      logout();
+                      toast.success("Logged out");
+                      navigate("/");
+                    }}
+                    onClose={() => setShowProfile(false)}
+                  />
+                </div>
+              )}
+            </AnimatePresence>
           </div>
 
           <button
